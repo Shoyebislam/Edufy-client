@@ -18,6 +18,11 @@ import LearnCourse from "../pages/LearnCourse";
 import ShowModules from "../pages/ShowModules";
 
 import MyProfile from "../pages/MyProfile";
+import Bookmarks from "../pages/Bookmarks";
+import MyNotes from "../pages/MyNotes";
+import Reviews from "../pages/Reviews";
+import TrendingCourses from "../pages/TrendingCourses";
+import Quizzes from "../pages/Quizzes";
 
 // import PrivateRouter from "./PrivateRouter";
 
@@ -94,9 +99,48 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
-    
-
-      
+    {
+        path: "/bookmarks",
+        element: (
+          <PrivateRouter>
+            <Bookmarks></Bookmarks>
+          </PrivateRouter>
+        ),
+      },
+{
+        path: "/myNotes",
+        element: (
+          <PrivateRouter>
+            <MyNotes></MyNotes>
+          </PrivateRouter>
+        ),
+      },
+       {
+        path: "/reviews",
+        element: (
+          <PrivateRouter>
+            <Reviews></Reviews>
+          </PrivateRouter>
+        ),
+        loader: () => fetch(`https://edufy-server.vercel.app/reviews`),
+      },
+      {
+        path: "/highRatedCourses",
+        element: (
+          <PrivateRouter>
+            <TrendingCourses></TrendingCourses>
+          </PrivateRouter>
+        ),
+        loader: () => fetch(`https://edufy-server.vercel.app/highRatedCourses`),
+      },
+      {
+        path: "/quizzes",
+        element: (
+          <PrivateRouter>
+            <Quizzes></Quizzes>
+          </PrivateRouter>
+        ),
+      },
     ],
   },
   {
